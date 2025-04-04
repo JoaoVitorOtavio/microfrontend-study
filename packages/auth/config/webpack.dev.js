@@ -1,4 +1,3 @@
-// necessario para mergear as configuracoes de dev com as configuracoes de common
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
@@ -8,11 +7,13 @@ const packageJson = require("../package.json");
 const devConfig = {
   mode: "development",
   output: {
-    publicPath: "http://localhost:8082/", // precisa ser o mesmo da porta do devServer
+    publicPath: "http://localhost:8082/",
   },
   devServer: {
     port: 8082,
-    historyApiFallback: true,
+    historyApiFallback: {
+      historyApiFallback: true,
+    },
   },
   plugins: [
     new ModuleFederationPlugin({
