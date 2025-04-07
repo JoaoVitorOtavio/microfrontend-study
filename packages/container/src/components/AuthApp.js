@@ -16,6 +16,9 @@ export default () => {
           history.push(nextPathname);
         }
       },
+      onSignIn: () => {
+        history.push("/dashboard");
+      },
     });
 
     history.listen(onParentNavigate);
